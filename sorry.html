@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Favorite Human 💗</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #ffecd2 100%);
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            padding: 50px 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Floating hearts background */
+        .heart {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0.6;
+            animation: float 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 700px;
+            animation: fadeInUp 1s ease-out;
+            z-index: 10;
+            position: relative;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 50px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        p {
+            font-size: 20px;
+            color: #fff;
+            max-width: 600px;
+            margin: 30px auto;
+            line-height: 1.8;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            background-color: white;
+            color: #ff4e50;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: slideUp 0.8s ease-out backwards;
+        }
+
+        button:nth-child(1) { animation-delay: 0.1s; }
+        button:nth-child(2) { animation-delay: 0.2s; }
+        button:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        button:hover {
+            background-color: #ffe6e6;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        button:active {
+            transform: translateY(-1px);
+        }
+
+        #noButton {
+            position: relative;
+            transition: all 0.2s ease-out;
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #ff4e50;
+            pointer-events: none;
+            animation: confetti-fall 3s ease-in;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .message-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 20px;
+            display: none;
+            animation: popIn 0.5s ease-out;
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .message-box.show {
+            display: block;
+        }
+
+        .message-box p {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 30px 15px;
+            }
+
+            .container {
+                max-width: 90%;
+            }
+
+            h1 {
+                font-size: 35px;
+                margin-bottom: 15px;
+            }
+
+            p {
+                font-size: 16px;
+                margin: 20px auto;
+                line-height: 1.6;
+            }
+
+            .button-container {
+                gap: 10px;
+                margin-top: 30px;
+            }
+
+            button {
+                padding: 12px 20px;
+                font-size: 16px;
+                border-radius: 20px;
+            }
+
+            .heart {
+                font-size: 20px;
+            }
+
+            .message-box {
+                padding: 20px;
+                margin-top: 15px;
+            }
+
+            .message-box p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .container {
+                max-width: 100%;
+            }
+
+            h1 {
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-size: 14px;
+                margin: 15px auto;
+                line-height: 1.5;
+            }
+
+            .button-container {
+                gap: 8px;
+                margin-top: 25px;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            button {
+                padding: 12px 15px;
+                font-size: 15px;
+                width: 100%;
+            }
+
+            button:nth-child(1) { animation-delay: 0.1s; }
+            button:nth-child(2) { animation-delay: 0.2s; }
+            button:nth-child(3) { animation-delay: 0.3s; }
+
+            .heart {
+                font-size: 18px;
+            }
+
+            .message-box {
+                padding: 15px;
+                margin-top: 10px;
+            }
+
+            .message-box p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will You Forgive Me? 🥺💔</h1>
+
+        <p>
+            I made a joke that I shouldn't have. I'm truly sorry for that.  
+            I hurt you, and I hate myself for it. I promise you - I will never do this again.  
+            You're so important to me, and I'll be more careful with your feelings. 🥺
+        </p>
+
+        <div class="button-container">
+            <button onclick="forgive()">Yes 💕</button>
+            <button onclick="yesClick()">Definitely 💙</button>
+            <button id="noButton" onmouseover="moveButton()" onclick="moveButton()">No 😢</button>
+        </div>
+
+        <div class="message-box" id="messageBox">
+            <p id="messageText"></p>
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createFloatingHearts() {
+            const hearts = ['😢', '😭', '💔', '😔', '🥺'];
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                document.body.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 8000);
+            }, 300);
+        }
+
+        // Confetti effect
+        function createConfetti() {
+            const colors = ['#ff4e50', '#ff6b6b', '#ffd93d', '#6bcf7f', '#4d96ff'];
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.delay = Math.random() * 0.5 + 's';
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 3500);
+            }
+        }
+
+        function showMessage(text) {
+            const messageBox = document.getElementById('messageBox');
+            const messageText = document.getElementById('messageText');
+            messageText.textContent = text;
+            messageBox.classList.add('show');
+            setTimeout(() => messageBox.classList.remove('show'), 3000);
+        }
+
+        function forgive() {
+            createConfetti();
+            showMessage("Yayyy 🥺❤️ Thank you for forgiving meee!");
+        }
+
+        function yesClick() {
+            createConfetti();
+            showMessage("That makes me so happy! 💙✨");
+        }
+
+        function moveButton() {
+            const noButton = document.getElementById('noButton');
+            const randomX = (Math.random() - 0.5) * 200;
+            const randomY = (Math.random() - 0.5) * 200;
+            noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+
+        // Initialize floating hearts on page load
+        createFloatingHearts();
+    </script>
+
+</body>
+</html>
